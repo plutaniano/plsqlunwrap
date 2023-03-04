@@ -1,0 +1,4 @@
+PROCEDURE htmldb_admin AS
+BEGIN
+    APEX_ADMIN;
+END;
