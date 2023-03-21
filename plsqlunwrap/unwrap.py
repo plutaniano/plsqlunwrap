@@ -57,5 +57,5 @@ def unwrap(text: str) -> str:
     b64str = match.group("content").replace("\n", "")
     unmapped_bytes = b64decode(b64str)[20:]  # strip SHA1 hash
     mapped_bytes = bytearray(CHARMAP[i] for i in unmapped_bytes)
-    unwrapped = zlib.decompress(mapped_bytes)
-    return unwrapped.decode()[:-1]  # strip trailing NULL byte
+    unwrapped = zlib.decompress(mapped_bytes)[:-1]  # strip trailing NULL byte
+    return unwrapped.decode()
