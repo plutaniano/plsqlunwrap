@@ -3,7 +3,7 @@ from plsqlunwrap.unwrap import unwrap
 
 
 def main() -> None:
-    with open(sys.argv[1]) as f:
+    with open("".join(sys.argv[1:])) as f:
         print(unwrap(f.read()))
 
 

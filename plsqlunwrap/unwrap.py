@@ -1,6 +1,8 @@
+import os
 import re
 import zlib
 from base64 import b64decode
+from pathlib import Path
 
 PATTERN = re.compile(
     r"a000000\n"
@@ -49,7 +51,12 @@ CHARMAP = (
 # fmt: on
 
 
-def unwrap(text: str) -> str:
+def unwrap_file(path: str) -> str:
+    contents = Path(path).read_text()
+    return unwrap_source(contents)
+
+
+def unwrap_source(text: str) -> str:
     match = PATTERN.search(text)
     if not match:
         raise Exception("Invalid file")
@@ -59,3 +66,10 @@ def unwrap(text: str) -> str:
     mapped_bytes = bytearray(CHARMAP[i] for i in unmapped_bytes)
     unwrapped = zlib.decompress(mapped_bytes)[:-1]  # strip trailing NULL byte
     return unwrapped.decode()
+
+
+def unwrap(arg: str) -> str:
+    """General entrypoint for both source code and paths"""
+    if os.path.exists(arg):
+        return unwrap_file(arg)
+    return unwrap_source(arg)
