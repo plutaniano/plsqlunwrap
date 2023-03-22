@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plsqlunwrap"
+version = "0.0.1"
+description = "A python utility package to unwrap Oracle wrapped objects."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Lucas Rodrigues", email = "git@lucas.rs" }]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/plutaniano/plsqlunwrap"
+
+[project.scripts]
+plsqlunwrap = "plsqlunwrap.__main__:main"

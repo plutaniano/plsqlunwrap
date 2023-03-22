@@ -1,5 +1,7 @@
 # PLSQL Unwrap
 
+A python utility package to unwrap Oracle wrapped objects.
+
 ## Example
 
 ```python
