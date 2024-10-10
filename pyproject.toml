@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "plsqlunwrap"
-version = "0.0.1"
+version = "0.0.2"
 description = "A python utility package to unwrap Oracle wrapped objects."
 readme = "README.md"
 license = { file = "LICENSE" }
