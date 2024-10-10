@@ -6,7 +6,7 @@ from pathlib import Path
 
 PATTERN = re.compile(
     r"a000000\n"
-    r"(?P<db_version>[a-fA-F0-9])\n"
+    r"(?P<db_version>[a-fA-F0-9]+)\n"
     r"(?:abcd\n){15}"
     r"(?P<obj_type>[a-fA-F0-9])\n"
     r"(?P<unwrapped_len>[a-fA-F0-9]+) (?P<wrapped_len>[a-fA-F0-9]+)\n"
